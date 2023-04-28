@@ -85,7 +85,15 @@ public class CurrentAccount extends BankAccount {
         tradeLicenseId = String.valueOf(ch);
         return;
     }
-//    private boolean isValidTradeId(){
+
+    public String getTradeLicenseId() {
+        return tradeLicenseId;
+    }
+
+    public void setTradeLicenseId(String tradeLicenseId) {
+        this.tradeLicenseId = tradeLicenseId;
+    }
+    //    private boolean isValidTradeId(){
 //        HashMap<Character,Integer> hm=new HashMap<>();
 //        for(int i=0;i<tradeLicenseId.length()-1;i++){
 //            char p=tradeLicenseId.charAt(i);

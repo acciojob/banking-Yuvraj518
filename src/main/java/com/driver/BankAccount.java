@@ -46,18 +46,32 @@ public class BankAccount {
             throw new Exception("Account Number can not be generated");
         }
         String acNo="";
-        boolean flag=true;
-        while(flag) {
-            Random rand = new Random();
-            int remaningSum = sum;
-            int n;
-            for (int i = 0; i < digits; i++) {
-                int getMin = Math.min(remaningSum + 1, 10);
-                n = rand.nextInt(getMin);
-                acNo += String.valueOf(n);
-                remaningSum-=n;
+//        boolean flag=true;
+//        while(flag) {
+//            Random rand = new Random();
+//            int remaningSum = sum;
+//            int n;
+//            for (int i = 0; i < digits; i++) {
+//                int getMin = Math.min(remaningSum + 1, 10);
+//                n = rand.nextInt(getMin);
+//                acNo += String.valueOf(n);
+//                remaningSum-=n;
+//            }
+//            if(remaningSum==0){flag=false;}
+//        }
+        int remaningSum = sum;
+        while(remaningSum>0){
+            if(remaningSum>9){
+                acNo+="9";
+                remaningSum-=9;
             }
-            if(remaningSum==0){flag=false;}
+            else{
+                acNo+=remaningSum;
+                remaningSum=0;
+            }
+        }
+        while(acNo.length()<digits){
+            acNo+="0";
         }
         return acNo;
     }
@@ -74,9 +88,6 @@ public class BankAccount {
             throw new Exception("Insufficient Balance");
         }
         balance-=amount;
-        if(balance<minBalance){
-            System.out.println();
-        }
         return;
     }
 

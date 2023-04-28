@@ -45,7 +45,8 @@ public class CurrentAccount extends BankAccount{
         else{
             checkLength=((tradeLicenseId.length())/2);
         }
-        if(int x: hm.values()){
+        int x;
+        if(x: hm.values()){
             if(x>checkLength){return false;}
         }
         return true;
